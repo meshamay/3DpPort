@@ -226,7 +226,17 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+}
+
+.gallery-item:hover .gallery-item-image::before {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-icon {
+    position: relative;
+    z-index: 1;
 }
 
 .gallery-item-content {

@@ -2,45 +2,51 @@
 const portfolioItems = [
     {
         id: 1,
-        title: "Futuristic Cube",
-        description: "An animated geometric cube with dynamic lighting and materials. Perfect for modern UI elements.",
-        tags: ["Animation", "Geometry", "Interactive"],
-        modelType: "cube"
+        title: "Your 3D Project 1",
+        description: "Add description of your 3D work here. Describe the modeling process, materials used, and inspiration.",
+        tags: ["3D Model", "Design", "Art"],
+        modelType: "cube",
+        image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop" // 3D render placeholder
     },
     {
         id: 2,
-        title: "Abstract Sphere",
-        description: "A low-poly sphere with gradient materials. Great for backgrounds and abstract designs.",
-        tags: ["Low-Poly", "Abstract", "Materials"],
-        modelType: "sphere"
+        title: "Your 3D Project 2",
+        description: "Showcase your best 3D artwork. Talk about the techniques and software you used.",
+        tags: ["3D Art", "Render", "Visual"],
+        modelType: "sphere",
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" // 3D render placeholder
     },
     {
         id: 3,
-        title: "Torus Knot",
-        description: "Complex mathematical geometry creating an intricate 3D knot structure.",
-        tags: ["Mathematical", "Complex", "Unique"],
-        modelType: "torus"
+        title: "Your 3D Project 3",
+        description: "Display your creative 3D designs. Highlight unique features and artistic choices.",
+        tags: ["3D Design", "Creative", "Modern"],
+        modelType: "torus",
+        image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=600&h=400&fit=crop" // 3D render placeholder
     },
     {
         id: 4,
-        title: "Dodecahedron",
-        description: "A twelve-sided polyhedron with reflective materials and smooth surfaces.",
-        tags: ["Polyhedron", "Geometric", "Reflective"],
-        modelType: "dodecahedron"
+        title: "Your 3D Project 4",
+        description: "Present your 3D modeling skills. Share the story behind your creation.",
+        tags: ["3D Modeling", "Art", "Design"],
+        modelType: "dodecahedron",
+        image: "https://images.unsplash.com/photo-1635002320849-a704f0049a1e?w=600&h=400&fit=crop" // 3D render placeholder
     },
     {
         id: 5,
-        title: "Cylinder Design",
-        description: "Modern cylindrical structure with metallic finish and ambient lighting.",
-        tags: ["Modern", "Metallic", "Design"],
-        modelType: "cylinder"
+        title: "Your 3D Project 5",
+        description: "Feature your stunning 3D renders. Explain your workflow and techniques.",
+        tags: ["3D Render", "Digital Art", "Visual"],
+        modelType: "cylinder",
+        image: "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=600&h=400&fit=crop" // 3D render placeholder
     },
     {
         id: 6,
-        title: "Cone Structure",
-        description: "Elegant cone shape with gradient materials and soft shadows.",
-        tags: ["Elegant", "Gradient", "Soft"],
-        modelType: "cone"
+        title: "Your 3D Project 6",
+        description: "Showcase more of your 3D portfolio. Add details about your creative process.",
+        tags: ["3D Art", "Portfolio", "Design"],
+        modelType: "cone",
+        image: "https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?w=600&h=400&fit=crop" // 3D render placeholder
     }
 ];
 
@@ -275,8 +281,8 @@ function populateGallery() {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
         galleryItem.innerHTML = `
-            <div class="gallery-item-image">
-                🎨
+            <div class="gallery-item-image" style="background-image: url('${item.image}'); background-size: cover; background-position: center;">
+                ${!item.image || item.image.includes('images/') ? '<div class="placeholder-icon">🎨</div>' : ''}
             </div>
             <div class="gallery-item-content">
                 <h3>${item.title}</h3>
