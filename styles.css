@@ -251,96 +251,41 @@ header {
     margin: -20px;
 }
 
-/* Carousel Styles */
-.carousel-container {
-    position: relative;
+/* Podcast Modern Grid Layout */
+.podcast-container {
     margin-top: 3rem;
-    padding: 0 80px;
-    max-width: 800px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.carousel-wrapper {
-    overflow: hidden;
-    border-radius: 20px;
+.podcast-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    gap: 0;
-}
-
-.carousel-item {
-    min-width: 100%;
-    flex-shrink: 0;
-}
-
-.carousel-btn {
-    position: absolute;
-    top: 40%;
-    transform: translateY(-50%);
-    background: rgba(99, 102, 241, 0.9);
+#podcast .gallery-item {
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 2.5rem;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    padding: 0;
-    border: none;
-    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: none;
+    cursor: default;
 }
 
-.carousel-btn:hover {
-    background: rgba(99, 102, 241, 1);
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+#podcast .gallery-item:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    background: var(--card-bg) !important;
 }
 
-.carousel-prev {
-    left: 0;
-}
-
-.carousel-next {
-    right: 0;
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.8rem;
-    margin-top: 2rem;
-}
-
-.carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.carousel-dot.active {
-    background: var(--primary-color);
-    transform: scale(1.2);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.carousel-dot:hover {
-    background: rgba(99, 102, 241, 0.6);
-    transform: scale(1.1);
+@media (max-width: 768px) {
+    .podcast-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .gallery-item {
@@ -362,15 +307,13 @@ header {
     background: rgba(30, 41, 59, 0.9);
 }
 
-/* Remove hover effect from podcast, reels, and music video items */
-#podcast .carousel-item .gallery-item,
+/* Remove hover effect from reels and music video items */
 #reels .gallery-item,
 #music-video .gallery-item {
     cursor: default;
     transition: none;
 }
 
-#podcast .carousel-item .gallery-item:hover,
 #reels .gallery-item:hover,
 #music-video .gallery-item:hover {
     transform: none !important;
@@ -379,7 +322,6 @@ header {
     background: var(--card-bg) !important;
 }
 
-#podcast .carousel-item .gallery-item-image:hover::before,
 #reels .gallery-item-image:hover::before,
 #music-video .gallery-item-image:hover::before {
     background: rgba(0, 0, 0, 0.3) !important;

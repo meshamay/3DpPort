@@ -590,10 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateGallery(musicVideoItems, 'musicVideoGrid');
     populateGallery(vfxItems, 'vfxGrid');
     populateGallery(reelsItems, 'reelsGrid');
-    populateCarousel(podcastItems, 'podcastCarousel', 'podcastDots', 'podcastPrev', 'podcastNext');
-
-    // Populate Podcast Carousel
-    populateCarousel(podcastItems, 'podcastCarousel', 'podcastDots', 'podcastPrev', 'podcastNext');
+    populateGallery(podcastItems, 'podcastGrid');
 
     // Modal close button
     const closeBtn = document.querySelector('.close-modal');
