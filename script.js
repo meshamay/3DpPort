@@ -1,52 +1,181 @@
-// Portfolio Data
-const portfolioItems = [
+// Music Video Data (3 items)
+const musicVideoItems = [
     {
         id: 1,
-        title: "Your 3D Project 1",
-        description: "Add description of your 3D work here. Describe the modeling process, materials used, and inspiration.",
-        tags: ["3D Model", "Design", "Art"],
-        modelType: "cube",
-        image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop" // 3D render placeholder
+        title: "Music Video 1",
+        description: "Creative music video production with stunning visuals and storytelling.",
+        tags: ["Music", "Video", "Production"],
+        image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=400&fit=crop"
     },
     {
         id: 2,
-        title: "Your 3D Project 2",
-        description: "Showcase your best 3D artwork. Talk about the techniques and software you used.",
-        tags: ["3D Art", "Render", "Visual"],
-        modelType: "sphere",
-        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop" // 3D render placeholder
+        title: "Music Video 2",
+        description: "Artistic music video featuring dynamic cinematography and effects.",
+        tags: ["Music", "Cinematography", "Art"],
+        image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop"
     },
     {
         id: 3,
-        title: "Your 3D Project 3",
-        description: "Display your creative 3D designs. Highlight unique features and artistic choices.",
-        tags: ["3D Design", "Creative", "Modern"],
-        modelType: "torus",
-        image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=600&h=400&fit=crop" // 3D render placeholder
+        title: "Music Video 3",
+        description: "Innovative music video combining performance and visual storytelling.",
+        tags: ["Music", "Performance", "Visual"],
+        image: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=400&fit=crop"
+    }
+];
+
+// VFX/CGI Data (5 items)
+const vfxItems = [
+    {
+        id: 1,
+        title: "VFX Project 1",
+        description: "Complex visual effects and CGI integration for film and media.",
+        tags: ["VFX", "CGI", "Film"],
+        image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop"
+    },
+    {
+        id: 2,
+        title: "VFX Project 2",
+        description: "Advanced CGI rendering and compositing work.",
+        tags: ["CGI", "Compositing", "3D"],
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop"
+    },
+    {
+        id: 3,
+        title: "VFX Project 3",
+        description: "Photorealistic visual effects and environment creation.",
+        tags: ["VFX", "Environment", "Realistic"],
+        image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=600&h=400&fit=crop"
     },
     {
         id: 4,
-        title: "Your 3D Project 4",
-        description: "Present your 3D modeling skills. Share the story behind your creation.",
-        tags: ["3D Modeling", "Art", "Design"],
-        modelType: "dodecahedron",
-        image: "https://images.unsplash.com/photo-1635002320849-a704f0049a1e?w=600&h=400&fit=crop" // 3D render placeholder
+        title: "VFX Project 4",
+        description: "Character animation and motion graphics integration.",
+        tags: ["Animation", "Motion Graphics", "VFX"],
+        image: "https://images.unsplash.com/photo-1635002320849-a704f0049a1e?w=600&h=400&fit=crop"
     },
     {
         id: 5,
-        title: "Your 3D Project 5",
-        description: "Feature your stunning 3D renders. Explain your workflow and techniques.",
-        tags: ["3D Render", "Digital Art", "Visual"],
-        modelType: "cylinder",
-        image: "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=600&h=400&fit=crop" // 3D render placeholder
+        title: "VFX Project 5",
+        description: "Explosive effects and particle simulation work.",
+        tags: ["Effects", "Simulation", "CGI"],
+        image: "https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=600&h=400&fit=crop"
+    }
+];
+
+// Reels Data (5 items)
+const reelsItems = [
+    {
+        id: 1,
+        title: "Reel 1",
+        description: "Quick showcase of creative short-form content and highlights.",
+        tags: ["Reel", "Short Form", "Creative"],
+        image: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=600&h=400&fit=crop"
     },
     {
-        id: 6,
-        title: "Your 3D Project 6",
-        description: "Showcase more of your 3D portfolio. Add details about your creative process.",
-        tags: ["3D Art", "Portfolio", "Design"],
-        modelType: "cone",
-        image: "https://images.unsplash.com/photo-1620121478247-ec786b9be2fa?w=600&h=400&fit=crop" // 3D render placeholder
+        id: 2,
+        title: "Reel 2",
+        description: "Dynamic reel featuring motion design and visual effects.",
+        tags: ["Motion", "Design", "Visual"],
+        image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&h=400&fit=crop"
+    },
+    {
+        id: 3,
+        title: "Reel 3",
+        description: "Engaging short content with compelling storytelling.",
+        tags: ["Story", "Content", "Engaging"],
+        image: "https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?w=600&h=400&fit=crop"
+    },
+    {
+        id: 4,
+        title: "Reel 4",
+        description: "Fast-paced reel showcasing editing and transitions.",
+        tags: ["Editing", "Transitions", "Fast"],
+        image: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=400&fit=crop"
+    },
+    {
+        id: 5,
+        title: "Reel 5",
+        description: "Creative reel combining multiple visual techniques.",
+        tags: ["Creative", "Techniques", "Visual"],
+        image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=400&fit=crop"
+    }
+];
+
+// Podcast Data (5 items)
+const podcastItems = [
+    {
+        id: 1,
+        title: "Podcast Episode 1",
+        description: "Engaging discussion on creative topics and industry insights.",
+        tags: ["Podcast", "Discussion", "Creative"],
+        image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&h=400&fit=crop"
+    },
+    {
+        id: 2,
+        title: "Podcast Episode 2",
+        description: "In-depth conversation about visual storytelling techniques.",
+        tags: ["Storytelling", "Audio", "Interview"],
+        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop"
+    },
+    {
+        id: 3,
+        title: "Podcast Episode 3",
+        description: "Expert insights on production and creative workflows.",
+        tags: ["Production", "Workflow", "Insights"],
+        image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=400&fit=crop"
+    },
+    {
+        id: 4,
+        title: "Podcast Episode 4",
+        description: "Behind-the-scenes discussion of creative projects.",
+        tags: ["Behind Scenes", "Creative", "Projects"],
+        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop"
+    },
+    {
+        id: 5,
+        title: "Podcast Episode 5",
+        description: "Industry trends and future of digital content creation.",
+        tags: ["Trends", "Digital", "Future"],
+        image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=400&fit=crop"
+    }
+];
+
+// Podcast Data (5 items)
+const podcastItems = [
+    {
+        id: 1,
+        title: "Podcast Episode 1",
+        description: "Engaging discussion on creative topics and industry insights.",
+        tags: ["Podcast", "Discussion", "Creative"],
+        image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&h=400&fit=crop"
+    },
+    {
+        id: 2,
+        title: "Podcast Episode 2",
+        description: "In-depth conversation about visual storytelling techniques.",
+        tags: ["Storytelling", "Audio", "Interview"],
+        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop"
+    },
+    {
+        id: 3,
+        title: "Podcast Episode 3",
+        description: "Expert insights on production and creative workflows.",
+        tags: ["Production", "Workflow", "Insights"],
+        image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=400&fit=crop"
+    },
+    {
+        id: 4,
+        title: "Podcast Episode 4",
+        description: "Behind-the-scenes discussion of creative projects.",
+        tags: ["Behind Scenes", "Creative", "Projects"],
+        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop"
+    },
+    {
+        id: 5,
+        title: "Podcast Episode 5",
+        description: "Industry trends and future of digital content creation.",
+        tags: ["Trends", "Digital", "Future"],
+        image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=400&fit=crop"
     }
 ];
 
@@ -57,6 +186,9 @@ let currentModel = null;
 let animationId = null;
 let isWireframe = false;
 let isAnimating = true;
+
+// Carousel State
+let podcastCurrentIndex = 0;
 
 // Initialize Hero Scene
 function initHeroScene() {
@@ -272,12 +404,12 @@ function loadModelInViewer(modelType) {
     viewerScene.add(viewerMesh);
 }
 
-// Populate Gallery
-function populateGallery() {
-    const galleryGrid = document.getElementById('galleryGrid');
+// Populate Gallery - Generic function
+function populateGallery(items, gridId) {
+    const galleryGrid = document.getElementById(gridId);
     if (!galleryGrid) return;
 
-    portfolioItems.forEach(item => {
+    items.forEach(item => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
         galleryItem.innerHTML = `
@@ -292,10 +424,106 @@ function populateGallery() {
                 </div>
             </div>
         `;
-        
-        galleryItem.addEventListener('click', () => openViewer(item));
         galleryGrid.appendChild(galleryItem);
     });
+}
+
+// Carousel functionality
+let currentSlide = 0;
+let carouselInterval;
+
+function populateCarousel(items, trackId, dotsId, prevBtnId, nextBtnId) {
+    const track = document.getElementById(trackId);
+    const dotsContainer = document.getElementById(dotsId);
+    if (!track || !dotsContainer) return;
+
+    // Populate carousel items
+    items.forEach(item => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.innerHTML = `
+            <div class="gallery-item-image" style="background-image: url('${item.image}'); background-size: cover; background-position: center;">
+                ${!item.image || item.image.includes('images/') ? '<div class="placeholder-icon">🎨</div>' : ''}
+            </div>
+            <div class="gallery-item-content">
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <div class="gallery-item-tags">
+                    ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+            </div>
+        `;
+        track.appendChild(galleryItem);
+    });
+
+    // Create dots
+    const totalSlides = Math.ceil(items.length / 3);
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i, trackId, dotsId));
+        dotsContainer.appendChild(dot);
+    }
+
+    // Navigation buttons
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel(trackId, dotsId);
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel(trackId, dotsId);
+        });
+    }
+
+    // Auto-play carousel
+    startCarouselAutoplay(trackId, dotsId, totalSlides);
+    
+    // Pause autoplay on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+        carouselContainer.addEventListener('mouseleave', () => {
+            startCarouselAutoplay(trackId, dotsId, totalSlides);
+        });
+    }
+}
+
+function updateCarousel(trackId, dotsId) {
+    const track = document.getElementById(trackId);
+    const dots = document.querySelectorAll(`#${dotsId} .carousel-dot`);
+    
+    if (track) {
+        const slideWidth = 100;
+        track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+    }
+    
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function goToSlide(index, trackId, dotsId) {
+    currentSlide = index;
+    updateCarousel(trackId, dotsId);
+}
+
+function startCarouselAutoplay(trackId, dotsId, totalSlides) {
+    clearInterval(carouselInterval);
+    carouselInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel(trackId, dotsId);
+    }, 5000);
 }
 
 // Open Viewer Modal
@@ -421,6 +649,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Populate gallery
     populateGallery();
 
+    // Populate Podcast Carousel
+    populateCarousel(podcastItems, 'podcastCarousel', 'podcastDots', 'podcastPrev', 'podcastNext');
+
     // Modal close button
     const closeBtn = document.querySelector('.close-modal');
     if (closeBtn) {
@@ -465,6 +696,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         contactForm.addEventListener('submit', handleContactForm);
     }
+
+    // Initialize Podcast Carousel
+    initPodcastCarousel();
 
     // Scroll reveal animation
     const observer = new IntersectionObserver((entries) => {

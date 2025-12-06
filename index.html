@@ -19,8 +19,10 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#music-video">Music Video</a></li>
+                <li><a href="#vfx-cgi">VFX/CGI</a></li>
+                <li><a href="#reels">Reels</a></li>
+                <li><a href="#podcast">Podcast</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -36,15 +38,65 @@
         <div id="hero-canvas" class="canvas-container"></div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
+    <!-- Music Video Section -->
+    <section id="music-video" class="gallery-section">
         <div class="container">
-            <h2 class="section-title">3D Model Gallery</h2>
-            <p class="section-subtitle">Click on any project to view it in 3D</p>
+            <h2 class="section-title">Music Videos</h2>
+            <p class="section-subtitle">Creative music video productions</p>
             
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Gallery items will be dynamically loaded here -->
+            <div class="gallery-grid" id="musicVideoGrid">
+                <!-- Music video items will be dynamically loaded here -->
             </div>
+        </div>
+    </section>
+
+    <!-- VFX/CGI Section -->
+    <section id="vfx-cgi" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">VFX/CGI</h2>
+            <p class="section-subtitle">Visual effects and CGI creations</p>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-prev" id="vfxPrev">‹</button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="vfxCarousel">
+                        <!-- VFX/CGI items will be dynamically loaded here -->
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-next" id="vfxNext">›</button>
+            </div>
+            <div class="carousel-dots" id="vfxDots"></div>
+        </div>
+    </section>
+
+    <!-- Reels Section -->
+    <section id="reels" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Reels</h2>
+            <p class="section-subtitle">Short form content and highlights</p>
+            
+            <div class="gallery-grid" id="reelsGrid">
+                <!-- Reels items will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast Section -->
+    <section id="podcast" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Podcast</h2>
+            <p class="section-subtitle">Audio content and discussions</p>
+            
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" id="podcastPrev">‹</button>
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="podcastCarousel">
+                        <!-- Podcast items will be dynamically loaded here -->
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn" id="podcastNext">›</button>
+            </div>
+            <div class="carousel-dots" id="podcastDots"></div>
         </div>
     </section>
 
@@ -115,9 +167,9 @@
         <div class="container">
             <p>&copy; 2025 Vinoth Kumar - 3D Portfolio. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://www.artstation.com/meshamay" target="_blank" aria-label="ArtStation">ArtStation</a>
-                <a href="https://sketchfab.com/meshamay" target="_blank" aria-label="Sketchfab">Sketchfab</a>
-                <a href="mailto:meshamay@example.com" aria-label="Email">Email</a>
+                <a href="https://www.linkedin.com/in/vinothkumar" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                <a href="mailto:contact@example.com" aria-label="Email">Email</a>
+                <a href="#message" aria-label="Message">Message</a>
             </div>
         </div>
     </footer>
