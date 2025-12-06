@@ -245,6 +245,12 @@ header {
     margin-top: 2rem;
 }
 
+#vfx-cgi .gallery-grid {
+    overflow: visible;
+    padding: 20px;
+    margin: -20px;
+}
+
 /* Carousel Styles */
 .carousel-container {
     position: relative;
@@ -385,7 +391,6 @@ header {
 
 /* VFX Section - Special Hover Zoom Effect */
 #vfx-cgi .gallery-item {
-    overflow: visible;
     position: relative;
     z-index: 1;
 }
@@ -416,6 +421,7 @@ header {
     transition: opacity 0.4s ease;
     pointer-events: none;
     border-radius: 20px;
+    z-index: 1;
 }
 
 #vfx-cgi .gallery-item:hover::after {
