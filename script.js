@@ -101,7 +101,7 @@ const reelsItems = [
     }
 ];
 
-// Podcast Data (5 items)
+// Podcast Data (2 items)
 const podcastItems = [
     {
         id: 1,
@@ -116,27 +116,6 @@ const podcastItems = [
         description: "In-depth conversation about visual storytelling techniques.",
         tags: ["Storytelling", "Audio", "Interview"],
         image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop"
-    },
-    {
-        id: 3,
-        title: "Podcast Episode 3",
-        description: "Expert insights on production and creative workflows.",
-        tags: ["Production", "Workflow", "Insights"],
-        image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=400&fit=crop"
-    },
-    {
-        id: 4,
-        title: "Podcast Episode 4",
-        description: "Behind-the-scenes discussion of creative projects.",
-        tags: ["Behind Scenes", "Creative", "Projects"],
-        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=400&fit=crop"
-    },
-    {
-        id: 5,
-        title: "Podcast Episode 5",
-        description: "Industry trends and future of digital content creation.",
-        tags: ["Trends", "Digital", "Future"],
-        image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=600&h=400&fit=crop"
     }
 ];
 
