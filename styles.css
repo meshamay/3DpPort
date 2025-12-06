@@ -8,20 +8,25 @@
 :root {
     --primary-color: #6366f1;
     --secondary-color: #8b5cf6;
-    --dark-bg: #0f172a;
-    --card-bg: #1e293b;
-    --text-primary: #f1f5f9;
+    --accent-color: #ec4899;
+    --dark-bg: #0a0e1a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
     --text-secondary: #cbd5e1;
     --accent: #f59e0b;
     --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--dark-bg);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: radial-gradient(ellipse at top, #1a1f3a 0%, var(--dark-bg) 50%);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -35,27 +40,37 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 14, 26, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .logo h1 {
     font-size: 1.8rem;
-    background: var(--gradient);
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
 .nav-links {
@@ -68,27 +83,33 @@ header {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: var(--primary-color);
+    background: var(--gradient);
     transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+    width: 60%;
 }
 
 /* Hero Section */
@@ -109,9 +130,17 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
     pointer-events: none;
+    animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
 }
 
 .hero-content {
@@ -121,14 +150,16 @@ header {
 }
 
 .hero-title {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 4.5rem;
+    font-weight: 800;
     margin-bottom: 1rem;
-    background: var(--gradient);
+    background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: fadeInUp 0.8s ease;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
 }
 
 .hero-subtitle {
@@ -140,19 +171,39 @@ header {
 
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 1.2rem 3rem;
     background: var(--gradient);
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInUp 0.8s ease 0.4s both;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .canvas-container {
@@ -169,13 +220,15 @@ header {
 }
 
 .section-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 1rem;
-    background: var(--gradient);
+    background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #f093fb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.02em;
 }
 
 .section-subtitle {
@@ -194,16 +247,21 @@ header {
 
 .gallery-item {
     background: var(--card-bg);
-    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeIn 0.5s ease;
 }
 
 .gallery-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.5);
+    background: rgba(30, 41, 59, 0.9);
 }
 
 .gallery-item-image {
@@ -289,9 +347,13 @@ header {
     width: 90%;
     max-width: 1400px;
     height: 90vh;
-    background: var(--card-bg);
-    border-radius: 20px;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
     overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
 
 .close-modal {
@@ -392,17 +454,21 @@ header {
 }
 
 .skill-tag {
-    background: rgba(99, 102, 241, 0.2);
+    background: rgba(99, 102, 241, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.3);
     color: var(--primary-color);
     padding: 0.8rem 1.5rem;
     border-radius: 25px;
     font-weight: 600;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .skill-tag:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.05);
     background: rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.6);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
 }
 
 /* Contact Section */
@@ -421,16 +487,21 @@ header {
 
 .contact-method {
     background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
     text-align: center;
-    min-width: 200px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 220px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-method:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+    border-color: rgba(99, 102, 241, 0.5);
+    background: rgba(30, 41, 59, 0.9);
 }
 
 .contact-icon {
@@ -467,37 +538,59 @@ header {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 1rem;
-    background: var(--card-bg);
-    border: 2px solid transparent;
-    border-radius: 8px;
+    padding: 1.2rem;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     color: var(--text-primary);
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
+    background: rgba(30, 41, 59, 0.9);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px);
 }
 
 .submit-button {
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 1.2rem 2rem;
     background: var(--gradient);
     color: white;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid transparent;
+    border-radius: 12px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.submit-button:hover::before {
+    left: 100%;
 }
 
 .submit-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .form-status {
@@ -525,8 +618,10 @@ header {
 
 /* Footer */
 footer {
-    background: var(--card-bg);
-    padding: 2rem;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
     text-align: center;
 }
 
