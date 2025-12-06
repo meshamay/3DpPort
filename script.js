@@ -494,6 +494,103 @@ function startCarouselAutoplay(trackId, dotsId, totalSlides) {
     }, 5000);
 }
 
+// Podcast Carousel (shows 2 items at a time)
+let podcastSlide = 0;
+let podcastAutoplay = null;
+
+function populatePodcastCarousel(items) {
+    const track = document.getElementById('podcastCarousel');
+    const indicators = document.getElementById('podcastIndicators');
+    if (!track || !indicators) return;
+
+    // Populate carousel items
+    items.forEach(item => {
+        const carouselItem = document.createElement('div');
+        carouselItem.className = 'podcast-carousel-item';
+        
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.innerHTML = `
+            <div class="gallery-item-image" style="background-image: url('${item.image}'); background-size: cover; background-position: center;">
+                ${!item.image || item.image.includes('images/') ? '<div class="placeholder-icon">🎙️</div>' : ''}
+            </div>
+            <div class="gallery-item-content">
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <div class="gallery-item-tags">
+                    ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+            </div>
+        `;
+        carouselItem.appendChild(galleryItem);
+        track.appendChild(carouselItem);
+    });
+
+    // Create indicators (for slides showing 2 items)
+    const totalSlides = Math.ceil(items.length / 2);
+    for (let i = 0; i < totalSlides; i++) {
+        const indicator = document.createElement('button');
+        indicator.className = 'podcast-indicator';
+        if (i === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToPodcastSlide(i));
+        indicators.appendChild(indicator);
+    }
+
+    // Navigation buttons
+    const prevBtn = document.getElementById('podcastPrev');
+    const nextBtn = document.getElementById('podcastNext');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            podcastSlide = (podcastSlide - 1 + totalSlides) % totalSlides;
+            updatePodcastCarousel();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            podcastSlide = (podcastSlide + 1) % totalSlides;
+            updatePodcastCarousel();
+        });
+    }
+
+    // Auto-play
+    startPodcastAutoplay(totalSlides);
+    
+    // Pause on hover
+    const container = document.querySelector('.podcast-carousel-container');
+    if (container) {
+        container.addEventListener('mouseenter', () => clearInterval(podcastAutoplay));
+        container.addEventListener('mouseleave', () => startPodcastAutoplay(totalSlides));
+    }
+}
+
+function updatePodcastCarousel() {
+    const track = document.getElementById('podcastCarousel');
+    const indicators = document.querySelectorAll('.podcast-indicator');
+    
+    if (track) {
+        track.style.transform = `translateX(-${podcastSlide * 100}%)`;
+    }
+    
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === podcastSlide);
+    });
+}
+
+function goToPodcastSlide(index) {
+    podcastSlide = index;
+    updatePodcastCarousel();
+}
+
+function startPodcastAutoplay(totalSlides) {
+    clearInterval(podcastAutoplay);
+    podcastAutoplay = setInterval(() => {
+        podcastSlide = (podcastSlide + 1) % totalSlides;
+        updatePodcastCarousel();
+    }, 5000);
+}
+
 // Open Viewer Modal
 function openViewer(item) {
     const modal = document.getElementById('viewerModal');
@@ -618,7 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateGallery(musicVideoItems, 'musicVideoGrid');
     populateGallery(vfxItems, 'vfxGrid');
     populateGallery(reelsItems, 'reelsGrid');
-    populateGallery(podcastItems, 'podcastGrid');
+    populatePodcastCarousel(podcastItems);
 
     // Modal close button
     const closeBtn = document.querySelector('.close-modal');
