@@ -383,6 +383,45 @@ header {
     z-index: 1;
 }
 
+/* VFX Section - Special Hover Zoom Effect */
+#vfx-cgi .gallery-item {
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+}
+
+#vfx-cgi .gallery-item:hover {
+    z-index: 10;
+    transform: translateY(-20px) scale(1.15);
+    box-shadow: 0 30px 60px rgba(99, 102, 241, 0.5);
+}
+
+#vfx-cgi .gallery-item-image {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#vfx-cgi .gallery-item:hover .gallery-item-image {
+    transform: scale(1.1);
+}
+
+#vfx-cgi .gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+#vfx-cgi .gallery-item:hover::after {
+    opacity: 1;
+}
+
 .gallery-item-content {
     padding: 1.5rem;
 }
