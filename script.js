@@ -366,12 +366,45 @@ function handleContactForm(e) {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-
-    // Here you would typically send this to a backend
-    console.log('Form submitted:', { name, email, message });
+    const formStatus = document.getElementById('formStatus');
+    const submitButton = e.target.querySelector('.submit-button');
     
-    alert('Thank you for your message! I\'ll get back to you soon.');
-    e.target.reset();
+    // Disable submit button
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    
+    // Create mailto link with pre-filled information
+    const ownerEmail = 'meshamay@example.com';
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Email: ${email}\n\n` +
+        `Message:\n${message}\n\n` +
+        `---\n` +
+        `Sent via 3D Portfolio Contact Form`
+    );
+    
+    const mailtoLink = `mailto:${ownerEmail}?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    formStatus.textContent = 'Opening your email client... Please send the email to complete your message.';
+    formStatus.className = 'form-status success';
+    
+    // Reset form after a delay
+    setTimeout(() => {
+        e.target.reset();
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+        formStatus.textContent = 'Thank you for reaching out! Please check your email client.';
+        
+        // Hide message after 5 seconds
+        setTimeout(() => {
+            formStatus.style.display = 'none';
+        }, 5000);
+    }, 2000);
 }
 
 // Event Listeners
