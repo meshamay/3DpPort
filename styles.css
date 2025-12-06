@@ -361,12 +361,16 @@ header {
     background: rgba(30, 41, 59, 0.9);
 }
 
-/* Remove hover effect from podcast carousel items */
-#podcast .carousel-item .gallery-item {
+/* Remove hover effect from podcast, reels, and music video items */
+#podcast .carousel-item .gallery-item,
+#reels .gallery-item,
+#music-video .gallery-item {
     cursor: default;
 }
 
-#podcast .carousel-item .gallery-item:hover {
+#podcast .carousel-item .gallery-item:hover,
+#reels .gallery-item:hover,
+#music-video .gallery-item:hover {
     transform: none;
     box-shadow: none;
     border-color: rgba(255, 255, 255, 0.1);
